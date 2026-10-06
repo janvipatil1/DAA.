@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+
+
+void kruskalMST( int **cost, int V){
+	int parent[100];
+	for(int i = 0;i< V;i++)
+		parent[i] =i;
+	int edges = 0 ; int minCost = 0;
+	while(edges < V-1){
+		int min = INT_MAX;
+		int u= -1; int v= -1;
+	
+	for(int  i = 0;i< V;i++){
+		for(int j = i+1; j<V; j++){
+			
+		
+		if(cost[i][j] < min){
+			min= cost[i][j];
+			u=i;
+			v=j;
+		}
+	}
+}
+	int ru = u;
+	while(parent[ru] != ru)
+		ru = parent[ru];
+	int rv= v;
+	while(parent[rv] != rv)
+		rv = parent[rv];
+	if(ru != rv){
+		printf("Edge %d:(%d, %d) cost:%d\n",edges,u,v,min );
+		minCost += min;
+		parent[ru] = rv;
+}
